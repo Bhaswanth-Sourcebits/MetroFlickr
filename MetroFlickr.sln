@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MetroFlickr.Model", "src\MetroFlickr.Model\MetroFlickr.Model.csproj", "{754B2CF3-2FCA-4AD3-B03D-ADC6969F200C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MetroFlickr8", "..\MetroFlickrNew\MetroFlickr8\MetroFlickr8.csproj", "{6659A7E6-3EC4-42C2-914D-6ABDE429462B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MetroFlickr8", "src\MetroFlickr8\MetroFlickr8.csproj", "{6659A7E6-3EC4-42C2-914D-6ABDE429462B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
