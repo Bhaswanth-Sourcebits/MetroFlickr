@@ -61,25 +61,24 @@ namespace MetroFlickr.Model
                 {
                     FlickrImageSet imageSet = null;
                     
-                    dispatcher.Invoke(Windows.UI.Core.CoreDispatcherPriority.Normal, (x,y) =>
+                    dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () =>
                     {
                         imageSet = new FlickrImageSet(photoSet.PhotosetSmallUrl, photoSet.Title, photoSet.DateUpdated, photoSet.Description);
                         this.ImageSets.Add(imageSet);
                         base.OnPropertyChanged("ImageSets");
-                    }, 
-                    this, null);
+                    } 
+                    );
 
                     var photosetPhotosCollection = _GetCollectionForSetAsync(photoSet.PhotosetId).Result;
 
                     foreach (var photo in photosetPhotosCollection)
                     {
-                        dispatcher.Invoke(Windows.UI.Core.CoreDispatcherPriority.Normal, (x,y) =>
+                        dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () =>
                         {
                             var image = new FlickrImage(imageSet, photo.SmallUrl, photo.DoesLargeExist ? photo.LargeUrl : photo.Medium640Url, photo.Title, photo.DateTaken);
                             imageSet.Collection.Add(image);
 
-                        }, 
-                        this, null);
+                        });
                     }
                 }
 
@@ -99,11 +98,10 @@ namespace MetroFlickr.Model
 
                 foreach (var photo in photos)
                 {
-                    dispatcher.Invoke(Windows.UI.Core.CoreDispatcherPriority.Normal, (x, y) =>
+                    dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () =>
                     {
                         flickrImages.Add(new FlickrImage(null, photo.SmallUrl, photo.DoesLargeExist ? photo.LargeUrl : photo.Medium640Url, photo.Title, photo.DateTaken));
-                    }, 
-                    this, null);
+                    });
                 }
                 return flickrImages;
             });
