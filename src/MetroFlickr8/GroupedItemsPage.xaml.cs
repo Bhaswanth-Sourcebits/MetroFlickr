@@ -59,7 +59,7 @@ namespace MetroFlickr8
 
         public void Page_Loaded(object sender, RoutedEventArgs e)
         {
-            backButton.Visibility = (this.DataContext is FlickrDataSource) ? Visibility.Collapsed : Visibility.Visible;
+            BackButton.Visibility = (this.DataContext is FlickrDataSource) ? Visibility.Collapsed : Visibility.Visible;
 
             if (_displayHandler == null)
             {

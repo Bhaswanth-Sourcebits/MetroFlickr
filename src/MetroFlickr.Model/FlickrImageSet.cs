@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Media.Imaging;
+using System.Collections.ObjectModel;
 
 namespace MetroFlickr.Model
 {
@@ -41,6 +42,13 @@ namespace MetroFlickr.Model
             return string.Format("[ImgSet] {0} - {1} images", this.Title, this.Collection.Count);
         }
 
+        private ObservableCollection<FlickrImageSet> _items = new ObservableCollection<FlickrImageSet>();
+
+        public IEnumerable<FlickrImageSet> TopItems
+        {
+
+            get { return this._items; }
+        }
         //public object Key
         //{
         //    get { return this.Title; }
