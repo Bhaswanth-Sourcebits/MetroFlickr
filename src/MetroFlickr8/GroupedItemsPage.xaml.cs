@@ -120,15 +120,21 @@ namespace MetroFlickr8
         /// <param name="e">Event data that describes how the click was initiated.</param>
         void Header_Click(object sender, RoutedEventArgs e)
         {
-           
+            if (this.DataContext is FlickrDataSource)
+            {
+                //display the selected collection
+                var imageSet = e.OriginalSource as FlickrImageSet;
+                this.NavigationController.SetView(imageSet.Title, ViewType.Collection, imageSet, imageSet.Collection, null);
+            }
+            else if (this.DataContext is FlickrImageSet)
+            {
+                //display the selected image in detail view
+                var image = e.OriginalSource as FlickrImage;
+                this.NavigationController.SetView(image.Title, ViewType.Detail, image, image.ImageSet.Collection, image);
+            }
         }
 
-        /// <summary>
-        /// Invoked when an item within a group is clicked.
-        /// </summary>
-        /// <param name="sender">The GridView (or ListView when the application is snapped)
-        /// displaying the item clicked.</param>
-        /// <param name="e">Event data that describes the item clicked.</param>
+        
         void ItemView_ItemClick(object sender, ItemClickEventArgs e)
         {
             

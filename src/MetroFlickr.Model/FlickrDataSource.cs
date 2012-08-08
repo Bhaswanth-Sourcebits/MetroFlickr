@@ -50,6 +50,12 @@ namespace MetroFlickr.Model
             }
         }
 
+        public IEnumerable<FlickrImageSet> TopItems
+        {
+
+            get { return ImageSets; }
+        }
+
         public Task<IList<FlickrImageSet>> LoadAsync(Windows.UI.Core.CoreDispatcher dispatcher)
         {
             var task = Task.Run(() =>
