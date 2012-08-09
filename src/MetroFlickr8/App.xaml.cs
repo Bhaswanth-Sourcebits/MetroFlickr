@@ -16,26 +16,14 @@ namespace MetroFlickr8
     /// </summary>
     sealed partial class App : Application
     {
-        public static FileSavePickerActivatedEventArgs FilePickerArgs;
+        
 
         public App()
         {
             InitializeComponent();
         }
 
-        protected void OnFilePickerActivated(FileSavePickerActivatedEventArgs args)
-        {
-            App.FilePickerArgs = args;
-
-            var page = new MainPage();
-
-            Window.Current.Content = page;
-            Window.Current.Activate();
-
-            page.SetView(ViewType.FilePicker);
-        }
-
-      
+           
 
         protected override void OnLaunched(LaunchActivatedEventArgs args)
         {            
@@ -44,7 +32,7 @@ namespace MetroFlickr8
             Window.Current.Content = page;
             Window.Current.Activate();
 
-            page.SetView(ViewType.Home);
+            page.SetView(ViewType.Collection);
         }        
     }
     }

@@ -41,7 +41,8 @@ namespace MetroFlickr8
         public ItemDetailPage(NavigationController navigationController)
             : this()
         {
-            this.NavigationController = navigationController;            
+            this.NavigationController = navigationController;
+            pageTitle.DataContext = this.NavigationController; 
         }
 
         void HomeButton_Click(object sender, RoutedEventArgs e)

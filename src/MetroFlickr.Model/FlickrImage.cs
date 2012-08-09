@@ -15,6 +15,8 @@ namespace MetroFlickr.Model
 
         public string Title { get; set; }
 
+        public string Description { get; set; }
+
         public ImageSource Image { get; private set; }
 
         public string ImageUri { get; private set; }
@@ -31,7 +33,7 @@ namespace MetroFlickr.Model
 
         public FlickrImageSet ImageSet { get; private set; }
 
-        public FlickrImage(FlickrImageSet imageSet, string smallImageUri, string largeImageUri, string title, DateTime date)
+        public FlickrImage(FlickrImageSet imageSet, string smallImageUri, string largeImageUri, string title, DateTime date, string Description)
         {
             this.ImageUri = smallImageUri;
             this.LargeImageUri = largeImageUri;
@@ -40,6 +42,7 @@ namespace MetroFlickr.Model
             this.Image = new BitmapImage(new Uri(smallImageUri));
             this.Title = title;
             this.Date = date;
+            this.Description = Description;
         }
 
         public override string ToString()

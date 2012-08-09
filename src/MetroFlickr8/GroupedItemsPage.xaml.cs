@@ -120,40 +120,22 @@ namespace MetroFlickr8
         /// <param name="e">Event data that describes how the click was initiated.</param>
         void Header_Click(object sender, RoutedEventArgs e)
         {
-            if (this.DataContext is FlickrDataSource)
-            {
-                //display the selected collection
-                var imageSet = e.OriginalSource as FlickrImageSet;
-                this.NavigationController.SetView(imageSet.Title, ViewType.Collection, imageSet, imageSet.Collection, null);
-            }
-            else if (this.DataContext is FlickrImageSet)
-            {
-                //display the selected image in detail view
-                var image = e.OriginalSource as FlickrImage;
-                this.NavigationController.SetView(image.Title, ViewType.Detail, image, image.ImageSet.Collection, image);
-            }
+            
         }
 
         
         void ItemView_ItemClick(object sender, ItemClickEventArgs e)
         {
             
+              //display the selected image in detail view
+                var image = e.ClickedItem as FlickrImage;
+                this.NavigationController.SetView(image.Title, ViewType.Detail, image, image.ImageSet.Collection, image);
+            
         }
 
          void itemGridView_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            if (this.DataContext is FlickrDataSource)
-            {
-                //display the selected collection
-                var imageSet = e.AddedItems[0] as FlickrImageSet;
-                this.NavigationController.SetView(imageSet.Title, ViewType.Collection, imageSet, imageSet.Collection, null);
-            }
-            else if (this.DataContext is FlickrImageSet)
-            {
-                //display the selected image in detail view
-                var image = e.AddedItems[0] as FlickrImage;
-                this.NavigationController.SetView(image.Title, ViewType.Detail, image, image.ImageSet.Collection, image);
-            }
+           
         }
 
                

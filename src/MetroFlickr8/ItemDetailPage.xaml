@@ -23,8 +23,7 @@
         <!-- Collection of items displayed by this page -->
         <CollectionViewSource
             x:Name="itemsViewSource"
-            Source="{Binding Items}"
-            d:Source="{Binding AllGroups[0].Items, Source={d:DesignInstance Type=data:SampleDataSource, IsDesignTimeCreatable=True}}"/>
+            />
     </Page.Resources>
 
     <!--
@@ -34,7 +33,6 @@
     -->
     <Grid
         Style="{StaticResource LayoutRootStyle}"
-        DataContext="{Binding Group}"
         d:DataContext="{Binding AllGroups[0], Source={d:DesignInstance Type=data:SampleDataSource, IsDesignTimeCreatable=True}}">
 
         <Grid.RowDefinitions>
@@ -84,15 +82,14 @@
                                         <Run FontSize="26.667" FontWeight="Light" Text="{Binding Title}"/>
                                         <LineBreak/>
                                         <LineBreak/>
-                                        <Run FontWeight="SemiBold" Text="{Binding Subtitle}"/>
-                                    </Paragraph>
+                                      </Paragraph>
                                     <Paragraph LineStackingStrategy="MaxHeight">
                                         <InlineUIContainer>
-                                            <Image x:Name="image" MaxHeight="480" Margin="0,20,0,10" Stretch="Uniform" Source="{Binding Image}"/>
+                                            <Image x:Name="image" MaxHeight="480" Margin="0,20,0,10" Stretch="Uniform" Source="{Binding LargeImage}"/>
                                         </InlineUIContainer>
                                     </Paragraph>
                                     <Paragraph>
-                                        <Run FontWeight="SemiLight" Text="{Binding Content}"/>
+                                        <Run FontWeight="SemiLight" Text="{Binding Description}"/>
                                     </Paragraph>
                                 </RichTextBlock>
 

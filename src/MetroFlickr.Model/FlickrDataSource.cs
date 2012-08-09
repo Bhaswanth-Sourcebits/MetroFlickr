@@ -44,19 +44,13 @@ namespace MetroFlickr.Model
 
                 foreach (var photo in photosetPhotosCollection)
                 {
-                    var image = new FlickrImage(imageSet, photo.SmallUrl, photo.DoesLargeExist ? photo.LargeUrl : photo.Medium640Url, photo.Title, photo.DateTaken);
+                    var image = new FlickrImage(imageSet, photo.SmallUrl, photo.DoesLargeExist ? photo.LargeUrl : photo.Medium640Url, photo.Title, photo.DateTaken, photoSet.Description);
                     imageSet.Collection.Add(image);
                 }
             }
         }
 
-        public IEnumerable<FlickrImageSet> TopItems
-        {
-
-            get { return ImageSets; }
-        }
-
-        public Task<IList<FlickrImageSet>> LoadAsync(Windows.UI.Core.CoreDispatcher dispatcher)
+           public Task<IList<FlickrImageSet>> LoadAsync(Windows.UI.Core.CoreDispatcher dispatcher)
         {
             var task = Task.Run(() =>
             {
@@ -81,7 +75,7 @@ namespace MetroFlickr.Model
                     {
                         dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () =>
                         {
-                            var image = new FlickrImage(imageSet, photo.SmallUrl, photo.DoesLargeExist ? photo.LargeUrl : photo.Medium640Url, photo.Title, photo.DateTaken);
+                            var image = new FlickrImage(imageSet, photo.SmallUrl, photo.DoesLargeExist ? photo.LargeUrl : photo.Medium640Url, photo.Title, photo.DateTaken, photoSet.Description);
                             imageSet.Collection.Add(image);
 
                         });
@@ -106,7 +100,7 @@ namespace MetroFlickr.Model
                 {
                     dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () =>
                     {
-                        flickrImages.Add(new FlickrImage(null, photo.SmallUrl, photo.DoesLargeExist ? photo.LargeUrl : photo.Medium640Url, photo.Title, photo.DateTaken));
+                        flickrImages.Add(new FlickrImage(null, photo.SmallUrl, photo.DoesLargeExist ? photo.LargeUrl : photo.Medium640Url, photo.Title, photo.DateTaken, photo.Description));
                     });
                 }
                 return flickrImages;

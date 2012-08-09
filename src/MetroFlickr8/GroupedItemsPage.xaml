@@ -21,7 +21,7 @@
         <CollectionViewSource
             x:Name="groupedItemsViewSource"
             IsSourceGrouped="true"
-            ItemsPath="TopItems"
+            ItemsPath="Collection"
             d:Source="{Binding AllGroups, Source={d:DesignInstance Type=data:SampleDataSource, IsDesignTimeCreatable=True}}"/>
     </Page.Resources>
 
@@ -56,8 +56,8 @@
             Padding="116,0,40,46"
             ItemsSource="{Binding Source={StaticResource groupedItemsViewSource}}"
             ItemTemplate="{StaticResource Standard250x250ItemTemplate}"
-            SelectionMode="None"
-            SelectionChanged="itemGridView_SelectionChanged">
+            IsItemClickEnabled="True"
+            ItemClick="ItemView_ItemClick">
 
             <GridView.ItemsPanel>
                 <ItemsPanelTemplate>                        
@@ -97,7 +97,6 @@
             Padding="10,0,0,60"
             ItemsSource="{Binding Source={StaticResource groupedItemsViewSource}}"
             ItemTemplate="{StaticResource Standard80ItemTemplate}"
-            SelectionMode="None"
             IsItemClickEnabled="True"
             ItemClick="ItemView_ItemClick">
 

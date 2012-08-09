@@ -24,6 +24,7 @@ namespace MetroFlickr8
     public sealed partial class MainPage : MetroFlickr8.Common.LayoutAwarePage
     {
         private NavigationController _NavigationController;
+
         public MainPage()
         {
             this.InitializeComponent();

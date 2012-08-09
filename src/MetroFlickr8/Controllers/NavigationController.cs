@@ -41,7 +41,7 @@ namespace MetroFlickr8.Controllers
         {
             switch (type)
             {
-                case ViewType.Home:
+                case ViewType.Collection:
                     {
                         this.Breadcrumb = title;
 
@@ -57,14 +57,11 @@ namespace MetroFlickr8.Controllers
                         
                         break;
                     }
-                case ViewType.Collection:
+                case ViewType.Home:
                     {
-                        this.Breadcrumb = string.Format("{0} -> {1}", "MetroFlickr", title);
-
-                        var page = new GroupedItemsPage(this);
+                        var page = new MainPage();
                         page.DataContext = context;
-                        page.Items = items;
-
+                        
                         Window.Current.Content = page;
                         Window.Current.Activate();
 
