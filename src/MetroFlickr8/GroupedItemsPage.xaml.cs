@@ -133,9 +133,11 @@ namespace MetroFlickr8
             
         }
 
-         void itemGridView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+         void ItemView_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-           
+            //display the selected image in detail view
+            var image = e.AddedItems[0] as FlickrImage;
+            this.NavigationController.SetView(image.Title, ViewType.Detail, image, image.ImageSet.Collection, image);
         }
 
                

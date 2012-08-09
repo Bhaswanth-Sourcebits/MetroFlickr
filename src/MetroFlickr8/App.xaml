@@ -18,7 +18,7 @@
 
             <!-- Application-specific resources -->
 
-            <x:String x:Key="AppName">MetroFlickr8</x:String>
+            <x:String x:Key="AppName">MetroFlickr</x:String>
         </ResourceDictionary>
     </Application.Resources>
 </Application>
