@@ -103,6 +103,7 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="CharmCont.cs" />
     <Compile Include="Controllers\NavigationController.cs" />
     <Compile Include="GroupedItemsPage.xaml.cs">
       <DependentUpon>GroupedItemsPage.xaml</DependentUpon>
@@ -140,6 +141,11 @@
     <Content Include="Assets\LightGray.png" />
     <Content Include="Assets\MediumGray.png" />
     <Content Include="Assets\DarkGray.png" />
+    <Content Include="Images\Logo.png" />
+    <Content Include="Images\SmallLogo.png" />
+    <Content Include="Images\SplashScreen.png" />
+    <Content Include="Images\StoreLogo.png" />
+    <Content Include="Images\WideLogo.png" />
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">

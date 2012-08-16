@@ -8,6 +8,15 @@ using Windows.UI.ViewManagement;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Data;
+using Windows.UI.Popups;
+using Windows.UI.ApplicationSettings;
+
+using Windows.UI.Popups;
+using Windows.UI.Xaml;
+using Windows.UI.Xaml.Controls;
+using Windows.UI.Xaml.Navigation;
+using MetroFlickr;
+using System;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -18,10 +27,13 @@ namespace MetroFlickr8
     /// </summary>
     public sealed partial class Settings
     {
+
         public Settings()
         {
             this.InitializeComponent();
+            //SettingsPane.GetForCurrentView().CommandsRequested += CommandsRequested;
         }
+
 
         private DisplayPropertiesEventHandler _displayHandler;
 
@@ -29,6 +41,7 @@ namespace MetroFlickr8
 
         public void Page_Loaded(object sender, RoutedEventArgs e)
         {
+
             object apiKey = null;
 
             if (Windows.Storage.ApplicationData.Current.RoamingSettings.Values.TryGetValue("FlickrApiKey", out apiKey))

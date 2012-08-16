@@ -28,8 +28,27 @@ namespace MetroFlickr8
         public MainPage()
         {
             this.InitializeComponent();
+            SettingsPane.GetForCurrentView().CommandsRequested += CommandsRequested;
+        }
+        private void CommandsRequested(SettingsPane sender, SettingsPaneCommandsRequestedEventArgs args)
+        {
+            UICommandInvokedHandler handler = new UICommandInvokedHandler(onSettingsCommand);
+            args.Request.ApplicationCommands.Add(new SettingsCommand("a", "Preferences", handler));
+            //args.Request.ApplicationCommands.Add(new SettingsCommand("s", "My Settings",handler));
+        }
+        void onSettingsCommand(IUICommand command)
+        {
+            //SettingsCommand settingsCommand = (SettingsCommand)command;
+
+
+            SettingsView.Visibility = Visibility.Visible;
+
+
         }
 
+        public void show1()
+        {
+        }
         private DisplayPropertiesEventHandler _displayHandler;
 
         private WindowSizeChangedEventHandler _layoutHandler;
@@ -98,8 +117,9 @@ namespace MetroFlickr8
             }
             else
             {
-                var dialog = new MessageDialog("MetroFlickr requires an API key and a username in order to run. Please enter these in the settings charm under Preferences");
-                dialog.ShowAsync();
+                //  var dialog = new MessageDialog("MetroFlickr requires an API key and a username in order to run. Please enter these in the settings charm under Preferences");
+                // dialog.ShowAsync();
+                SettingsView.Visibility = Visibility.Collapsed;
             }
         }
 
@@ -142,6 +162,8 @@ namespace MetroFlickr8
             DisplayProperties.OrientationChanged -= _displayHandler;
             Window.Current.SizeChanged += _layoutHandler;
         }
+
+
 
     }
 }
